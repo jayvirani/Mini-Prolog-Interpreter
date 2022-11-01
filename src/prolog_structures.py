@@ -38,7 +38,7 @@ class RuleBody:
 class Term:
 	pass
 
-# A function is, for example, father(rickard, ned).
+
 class Function(Term):
 	def __init__(self, relation, terms):
 		self.relation = relation # function name
@@ -57,7 +57,7 @@ class Function(Term):
 	def __hash__(self):
 		return hash(self.relation) + hash(self.terms)
 
-# Prolog Variables, e.g. X, Y, ...
+# Prolog Variables, e.g. X, Y
 class Variable(Term):
 	def __init__(self, value):
 		self.value = value
@@ -85,7 +85,7 @@ class Constant(Term):
 	def __hash__(self):
 		return hash(self.value)
 
-# Prolog Atoms, e.g. rickard, ned, ...
+# Prolog Atoms, e.g. spongebob, patrick
 class Atom(Constant):
 	def __init__(self, value):
 		super().__init__(value)
@@ -94,7 +94,6 @@ class Atom(Constant):
 		return str(self.value)
 	pass
 
-# Prolog Numbers, e.g. 1, 2, ...
 class Number(Constant):
 	def __init__(self, value):
 		super().__init__(int(value))
